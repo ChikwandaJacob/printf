@@ -31,12 +31,12 @@ int _printf(const char *format, ...)
 			case 's':
 				print_str(va_arg(list, char *), &count);
 				break;
-			case '%':
-				count++;
-				_putchar('%');
-				break;
 			case 'c':
 				_putchar(va_arg(list, int));
+				break;
+			default:
+				count++;
+				_putchar(*format);
 				break;
 			}
 		}
@@ -46,6 +46,7 @@ int _printf(const char *format, ...)
 			count++;
 		}
 		format++;
+		traverse++;
 	}
 	va_end(list);
 
