@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 	va_list list;
 
-	if (format != NULL)
+	if (format != NULL && *format != '%')
 	{
 		va_start(list, format);
 
@@ -41,5 +41,7 @@ int _printf(const char *format, ...)
 		}
 		va_end(list);
 	}
+	else
+		return (-1);
 	return (count);
 }
