@@ -53,10 +53,6 @@ int _printf(const char *format, ...)
 			case 'o':
 				print_o(va_arg(list, unsigned int), &count, 0);
 				break;
-			default:
-				_putchar('%');
-				_putchar(*format);
-				break;
 			}
 		}
 		else
