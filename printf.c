@@ -38,6 +38,9 @@ int _printf(const char *format, ...)
 				count++;
 				_putchar(*format);
 				break;
+			case 'z':
+				return (-1);
+				break;
 			default:
 				count++;
 				_putchar('%');
