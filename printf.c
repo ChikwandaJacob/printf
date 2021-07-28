@@ -10,12 +10,17 @@
  */
 int _printf(const char *format, ...)
 {
+	const char *traverse = format;
 	int count = 0;
 	va_list list;
 
 	va_start(list, format);
 
-	while (*format != '\0' && format != NULL)
+	traverse++;
+	if (format == NULL || (*format == '%' && *traverse == '\0'))
+		return (-1);
+
+	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
@@ -28,7 +33,7 @@ int _printf(const char *format, ...)
 				break;
 			case '%':
 				count++;
-				_putchar(va_arg(list, int));
+				_putchar('%');
 				break;
 			case 'c':
 				_putchar(va_arg(list, int));
