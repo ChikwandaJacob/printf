@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	while (*format != '\0')
+	while (*format != '\0' && format != NULL)
 	{
 		if (*format == '%')
 		{
@@ -23,9 +23,6 @@ int _printf(const char *format, ...)
 
 			switch (*format)
 			{
-			case 'd':
-				print_d(va_arg(list, int), &count);
-				break;
 			case 's':
 				print_str(va_arg(list, char *), &count);
 				break;
@@ -33,26 +30,8 @@ int _printf(const char *format, ...)
 				count++;
 				_putchar(va_arg(list, int));
 				break;
-			case 'i':
-				print_d(va_arg(list, unsigned int), &count);
-				break;
-			case 'b':
-				print_b(va_arg(list, int), &count);
-				break;
-			case 'X':
-				print_X(va_arg(list, unsigned int), &count, 0);
-				break;
-			case 'x':
-				print_x(va_arg(list, unsigned int), &count, 0);
-				break;
 			case 'c':
 				_putchar(va_arg(list, int));
-				break;
-			case 'u':
-				print_u(va_arg(list, unsigned int), &count);
-				break;
-			case 'o':
-				print_o(va_arg(list, unsigned int), &count, 0);
 				break;
 			}
 		}
