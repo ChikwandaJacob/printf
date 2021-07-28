@@ -1,0 +1,38 @@
+NAME
+       _printf - format and print data
+
+SYNOPSIS
+       _printf FORMAT [ARGUMENT]...
+       _printf OPTION
+
+DESCRIPTION
+       Print ARGUMENT(s) according to FORMAT, or execute according to OPTION:
+
+       FORMAT controls the output as in C _printf.  Interpreted sequences are:
+
+       \n     new line
+       %%     prints a single %
+       %d     prints interger values
+       %s     prints a string of characters
+       %c     prints a single character
+       %b     prints argument provided in binary format.
+       %x     prints argument provided in hex format lowercase.
+       %X     prints argument provided in hex format uppercase.
+       %u     prints argument provided in unsigned interger format.
+       %i     prints argument provided in interger format.
+       %o     prints argument provided in octal format.
+
+EXAMPLES
+       _printf("Hello World\n")
+       _printf("There are %d days in a %s", 365, "year")
+
+
+AUTHOR(S)
+       Written by Jacob Chkwanda and Pascal Madiri.
+
+COPYRIGHT
+       Copyright  ©  2021 holberton.
+
+
+
+
