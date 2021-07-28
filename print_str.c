@@ -12,7 +12,7 @@ void print_str(char *str, int *count_ptr)
 	while (*str)
 	{
 		_putchar(*str);
-		count_ptr++;
+		*count_ptr += 1;
 		str++;
 	}
 }
