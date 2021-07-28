@@ -13,35 +13,57 @@ int _printf(const char *format, ...)
 	int count = 0;
 	va_list list;
 
-	if (format != NULL && *format != '%')
-	{
-		va_start(list, format);
+	va_start(list, format);
 
-		while (*format)
+	while (*format != '\0')
+	{
+		if (*format == '%')
 		{
-			if (*format == '%')
-			{
-				format++;
-				if (*format == 's')
-					print_str(va_arg(list, char *), &count);
-				if (*format == '%')
-				{
-					count++;
-					_putchar('%');
-				}
-				if (*format == 'c')
-					_putchar(va_arg(list, int));
-			}
-			else
-			{
-				_putchar(*format);
-				count++;
-			}
 			format++;
+
+			switch (*format)
+			{
+			case 'd':
+				print_d(va_arg(list, int), &count);
+				break;
+			case 's':
+				print_str(va_arg(list, char *), &count);
+				break;
+			case '%':
+				count++;
+				_putchar(va_arg(list, int));
+				break;
+			case 'i':
+				print_d(va_arg(list, unsigned int), &count);
+				break;
+			case 'b':
+				print_b(va_arg(list, int), &count);
+				break;
+			case 'X':
+				print_X(va_arg(list, unsigned int), &count, 0);
+				break;
+			case 'x':
+				print_x(va_arg(list, unsigned int), &count, 0);
+				break;
+			case 'c':
+				_putchar(va_arg(list, int));
+				break;
+			case 'u':
+				print_u(va_arg(list, unsigned int), &count);
+				break;
+			case 'o':
+				print_o(va_arg(list, unsigned int), &count, 0);
+				break;
+			}
 		}
-		va_end(list);
+		else
+		{
+			_putchar(*format);
+			count++;
+		}
+		format++;
 	}
-	else
-		return (-1);
+	va_end(list);
+
 	return (count);
 }
