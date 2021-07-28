@@ -4,7 +4,7 @@
 int _printf(const char *format, ...);
 void print_b(int num, int *count_ptr);
 void print_d(int num, int *count_ptr);
-void print_o(int num, int *count_ptr, int tmp);
+void print_o(unsigned int num, int *count_ptr, int tmp);
 int _putchar(char c);
 void print_X(unsigned int num, int *count_ptr, int tmp);
 void print_x(unsigned int num, int *count_ptr, int tmp);
