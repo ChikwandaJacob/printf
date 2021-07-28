@@ -22,46 +22,15 @@ int _printf(const char *format, ...)
 			if (*format == '%')
 			{
 				format++;
-
-				switch (*format)
-				{
-				case 'd':
-					print_d(va_arg(list, int), &count);
-					break;
-				case 's':
+				if (*format == 's')
 					print_str(va_arg(list, char *), &count);
-					break;
-				case '%':
+				if (*format == '%')
+				{
 					count++;
 					_putchar('%');
-					break;
-				case 'i':
-					print_d(va_arg(list, unsigned int),
-						&count);
-					break;
-				case 'b':
-					print_b(va_arg(list, int), &count);
-					break;
-				case 'X':
-					print_X(va_arg(list, unsigned int),
-						&count, 0);
-					break;
-				case 'x':
-					print_x(va_arg(list, unsigned int),
-						&count, 0);
-					break;
-				case 'c':
-					_putchar(va_arg(list, int));
-					break;
-				case 'u':
-					print_u(va_arg(list, unsigned int),
-						&count);
-					break;
-				case 'o':
-					print_o(va_arg(list, unsigned int),
-						&count, 0);
-					break;
 				}
+				if (*format == 'c')
+					_putchar(va_arg(list, int));
 			}
 			else
 			{
@@ -72,6 +41,5 @@ int _printf(const char *format, ...)
 		}
 		va_end(list);
 	}
-
 	return (count);
 }
