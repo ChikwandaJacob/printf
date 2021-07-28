@@ -34,8 +34,13 @@ int _printf(const char *format, ...)
 			case 'c':
 				_putchar(va_arg(list, int));
 				break;
+			case '%':
+				count++;
+				_putchar(*format);
+				break;
 			default:
 				count++;
+				_putchar('%');
 				_putchar(*format);
 				break;
 			}
