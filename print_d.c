@@ -9,18 +9,19 @@
 int print_d(int num)
 {
 	int count = 1;
+	unsigned int new_num = num;
 
 	if (num < 0)
 	{
 		count++;
 		_putchar('-');
-		num *= -1;
+		new_num = num;
 	}
 
-	if (num >= 10)
-		count += print_d(num / 10);
+	if (new_num >= 10)
+		count += print_d(new_num / 10);
 
-	_putchar((num % 10) + '0');
+	_putchar((new_num % 10) + '0');
 
 	return (count);
 }
