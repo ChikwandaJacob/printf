@@ -31,6 +31,8 @@ int handle_formatting(va_list args, char format)
 		return (print_percent('%'));
 	case 's':
 		return (print_str(va_arg(args, char *)));
+	case 'z':
+		return (-2);
 	default:
 		return (-1);
 	}
