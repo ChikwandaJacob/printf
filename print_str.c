@@ -9,7 +9,7 @@
  */
 int print_str(char *str)
 {
-	int count = 1;
+	int count = 0;
 	char *null_text = "(null)";
 
 	if (str == NULL)
