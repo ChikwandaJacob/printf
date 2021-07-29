@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * parser - Calls appropriate functions for format specifiers in string.
@@ -14,7 +15,7 @@ int parser(const char *string, va_list args)
 {
 	int count = 0, tmp = 0;
 
-	while (*string)
+	for ( ; *string; string++)
 	{
 		if (*string == '%')
 		{
@@ -24,7 +25,6 @@ int parser(const char *string, va_list args)
 			if (tmp > 0)
 			{
 				count += tmp;
-				tmp = 0;
 			}
 			else if (tmp == -2)
 			{
@@ -33,24 +33,7 @@ int parser(const char *string, va_list args)
 			}
 			else
 			{
-				tmp = 0;
-				if (*string == ' ')
-				{
-					while (*string == ' ')
-					{
-						string++;
-						if (*string == '\0')
-							tmp = -1;
-					}
-					if (*string != '\0')
-					{
-						count += 3;
-						_putchar('%');
-						_putchar(' ');
-						_putchar(*string);
-					}
-				}
-				else if (*string == '\0')
+				if (*string == '\0')
 					tmp = -1;
 				else
 				{
@@ -65,8 +48,6 @@ int parser(const char *string, va_list args)
 			_putchar(*string);
 			count++;
 		}
-		if (*string != '\0')
-			string++;
 	}
 	va_end(args);
 	if (tmp == -1)
