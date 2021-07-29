@@ -22,7 +22,7 @@ int parser(const char *string, va_list args)
 			string++;
 			tmp = handle_formatting(args, *string);
 
-			if (tmp > 0)
+			if (tmp >= 0)
 			{
 				count += tmp;
 			}
