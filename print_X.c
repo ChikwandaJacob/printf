@@ -10,7 +10,7 @@ int print_X(unsigned int num)
 {
 	int count = 1;
 
-        if (num >= 16)
+	if (num >= 16)
 		count += print_X(num / 16);
 
 	if ((num % 16) < 10)

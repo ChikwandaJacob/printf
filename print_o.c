@@ -10,10 +10,10 @@ int print_o(unsigned int num)
 {
 	int count = 1;
 
-        if (num >= 8)
+	if (num >= 8)
 		count += print_o(num / 8);
 
-        _putchar((num % 8) + '0');
+	_putchar((num % 8) + '0');
 
 	return (count);
 }

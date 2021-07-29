@@ -12,11 +12,11 @@
  */
 int parser(const char *string, va_list args)
 {
-        int count = 0, tmp = 0;
+	int count = 0, tmp = 0;
 
 	while (*string)
 	{
-	        if (*string == '%')
+		if (*string == '%')
 		{
 			string++;
 			tmp = handle_formatting(args, *string);
@@ -46,9 +46,7 @@ int parser(const char *string, va_list args)
 					}
 				}
 				else if (*string == '\0')
-				{
-				        tmp = -1;
-				}
+					tmp = -1;
 				else
 				{
 					count += 2;
@@ -68,5 +66,5 @@ int parser(const char *string, va_list args)
 	va_end(args);
 	if (tmp == -1)
 		return (-1);
-        return(count);
+	return (count);
 }
