@@ -23,16 +23,16 @@ int parser(const char *string, va_list args)
 			tmp = handle_formatting(args, *string);
 
 			if (tmp >= 0)
-			{
 				count += tmp;
-			}
 			else if (tmp == -2)
 			{
+				tmp = 0;
 				count++;
 				_putchar('%');
 			}
 			else
 			{
+				tmp = 0;
 				if (*string == '\0')
 					tmp = -1;
 				else
