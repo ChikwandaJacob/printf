@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_d - prints integers
+ * print_i - prints integers
  * @num: number to be printed
  *
  * Return: total number of characters printed

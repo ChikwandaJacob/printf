@@ -5,7 +5,7 @@
  * handle_formatting - Calls functions to print appropriate format specifier
  *                     charcaters.
  * @args: list of arguments
- * @fomart: specified format specifier
+ * @format: specified format specifier
  *
  * Return: total number of characters printed
  */
