@@ -28,7 +28,7 @@ int handle_formatting(va_list args, char format)
 	case 'o':
 		return (print_digit(va_arg(args, int), 8));
 	case 'b':
-		return (print_digit(va_arg(args, int), 2));
+		return (print_binary(va_arg(args, int)));
 	case '%':
 		return (print_percent('%'));
 	case 's':
