@@ -7,7 +7,8 @@ int parser(const char *string, va_list args);
 /*This function prints hex, octal, binary, unsigned int and decimal numbers*/
 int print_digit(long int num, int base);
 int print_binary(long int num);
-int print_digit_x(int num, int base);
+int print_digit_x(unsigned long int num, char ch);
+int print_octal(unsigned long int num);
 int _putchar(int c);
 int print_str(char *str);
 int print_c(int ch);
