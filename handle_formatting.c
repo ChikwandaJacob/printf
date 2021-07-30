@@ -20,13 +20,13 @@ int handle_formatting(va_list args, char format)
 	case 'i':
 		return (print_digit(va_arg(args, int), 10));
 	case 'x':
-		return (print_digit_x(va_arg(args, int), 16));
+		return (print_digit_x(va_arg(args, unsigned int), 16));
 	case 'X':
-	        return (print_digit(va_arg(args, int), 16));
+	        return (print_digit(va_arg(args, unsigned int), 16));
 	case 'u':
-		return (print_digit(va_arg(args, int), 10));
+		return (print_unsigned(va_arg(args, unsigned int)));
 	case 'o':
-		return (print_digit(va_arg(args, int), 8));
+		return (print_digit(va_arg(args, unsigned int), 8));
 	case 'b':
 		return (print_binary(va_arg(args, long int)));
 	case '%':

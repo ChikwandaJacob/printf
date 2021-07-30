@@ -14,5 +14,6 @@ int print_c(int ch);
 int handle_formatting(va_list args, char format);
 int print_percent(char ch);
 char *reverse_string(char *string);
+int print_unsigned(unsigned long int num);
 
 #endif
