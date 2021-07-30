@@ -16,17 +16,19 @@ int handle_formatting(va_list args, char format)
 	case 'c':
 		return (print_c(va_arg(args, int)));
 	case 'd':
-		return (print_d(va_arg(args, int)));
+		return (print_digit(va_arg(args, int), 10));
 	case 'i':
-		return (print_i(va_arg(args, int)));
+		return (print_digit(va_arg(args, int), 10));
 	case 'x':
-		return (print_x(va_arg(args, unsigned int)));
+		return (print_digit_x(va_arg(args, int), 16));
 	case 'X':
-		return (print_X(va_arg(args, unsigned int)));
+	        return (print_digit(va_arg(args, int), 16));
 	case 'u':
-		return (print_u(va_arg(args, unsigned int)));
+		return (print_digit(va_arg(args, int), 10));
 	case 'o':
-		return (print_o(va_arg(args, unsigned int)));
+		return (print_digit(va_arg(args, int), 8));
+	case 'b':
+		return (print_digit(va_arg(args, int), 2));
 	case '%':
 		return (print_percent('%'));
 	case 's':
